@@ -4,6 +4,11 @@ products:
   latest: Derniers produits
   latest_section: Derniers produits en {{ .Section }}
   more: Découvrir plus de produits
+  pricing: Prix
+  pricing_with_value: 'Prix : {{ .Value }}'
+  reference: Référence
+  reference_short: Réf.
+  reference_with_value: 'Référence : {{ .Value }}'
   title:
     one: Produit
     other: Produits

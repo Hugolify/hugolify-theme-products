@@ -1,3 +1,5 @@
 <div class="sidebar"{{ partial "func/SetAnim" (dict "element" "sidebar") }}>
-  OFFERS
+  {{ partial "products/reference" . }}
+  {{ partial "products/price" . }}
+  {{ partial "products/description" . }}
 </div>

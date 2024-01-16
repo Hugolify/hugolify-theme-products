@@ -4,6 +4,11 @@ products:
   latest: Latest products
   latest_section: Our {{ .Section }}’s latest products
   more: Discover more products
+  pricing: Pricing
+  pricing_with_value: 'Price : {{ .Value }}'
+  reference: Reference
+  reference_short: Ref.
+  reference_with_value: 'Reference: {{ .Value }}'
   title:
     one: Product
     other: Products

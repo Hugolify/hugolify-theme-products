@@ -6,8 +6,10 @@
     @include media-breakpoint-up(md)
         .grid
             >
-                .content,
-                .toc
-                    grid-row: 2/4
-                .sidebar + .toc
-                    grid-row: 3/6
+                .heading,
+                .sidebar
+                    grid-column: 9/13
+                .sidebar
+                    grid-row: 2
+                .content
+                    grid-row: 1/4

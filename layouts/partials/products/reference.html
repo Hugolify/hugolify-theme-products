@@ -1,0 +1,4 @@
+{{ with .Params.sku }}
+  {{ $reference := partial "func/PrepareHTML" . }}
+  <p class="reference">{{ i18n "products.reference_with_value" (dict "Value" $reference) }}</p>
+{{ end }}
