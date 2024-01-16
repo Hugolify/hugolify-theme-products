@@ -1,6 +1,9 @@
 <header class="heading"{{ partial "func/SetAnim" (dict "element" "heading") }}>
+  {{ $manufacturer := "products/products_manufacturer.html" }}
+  {{ if templates.Exists ( printf "partials/%s" $manufacturer ) }}
+    {{ partial $manufacturer . }}
+  {{ end }}
   {{ with .Title }}
     <h1>{{ partial "func/PrepareHTML" . }}</h1>
   {{ end }}
-  {{ partial "products/metas" . }}
 </header>

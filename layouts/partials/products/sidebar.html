@@ -1,5 +1,9 @@
 <div class="sidebar"{{ partial "func/SetAnim" (dict "element" "sidebar") }}>
-  {{ partial "products/reference" . }}
-  {{ partial "products/price" . }}
-  {{ partial "products/description" . }}
+  <div class="product-detail">
+    {{ partial "products/heading-single" . }}
+    {{ partial "products/reference" . }}
+    {{ partial "products/offer" . }}
+    {{ partial "products/description" . }}
+  </div>
+  {{ partial "commons/share" . }}
 </div>

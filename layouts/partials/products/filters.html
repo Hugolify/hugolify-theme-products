@@ -1,5 +1,6 @@
 {{ $hasCategory := partial "func/HasTaxonomyAvailable" (dict "section" "products" "taxonomy" "products_categories") }}
-{{ if $hasCategory }}
+{{ $hasManufacturer := partial "func/HasTaxonomyAvailable" (dict "section" "products" "taxonomy" "products_manufacturer") }}
+{{ if or $hasCategory $hasManufacturer }}
   <div class="filters offcanvas" tabindex="-1" id="productsFilters" aria-labelledby="productsFiltersLabel">
     {{ partial "products/filters/header" . }}
     {{ partial "products/filters/content" . }}

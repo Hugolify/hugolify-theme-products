@@ -1,0 +1,14 @@
+{{ with .Params.offer }}
+  <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+    {{ with .sold }}
+      <meta itemprop="availability" content="https://schema.org/OutOfStock">
+    {{ else }}
+      <meta itemprop="availability" content="https://schema.org/InStock">
+    {{ end }}
+    {{ with .price }}
+      {{- $currency := $.Site.Params.currency | default "EUR" -}}
+      <p class="pricing" itemprop="price" content="{{ . }}">{{ partial "func/GetHumanPrice" . }}</p>
+      <meta itemprop="priceCurrency" content="{{ $currency }}">
+    {{ end }}
+  </div>
+{{ end }}

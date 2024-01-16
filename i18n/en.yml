@@ -4,6 +4,7 @@ products:
   latest: Latest products
   latest_section: Our {{ .Section }}’s latest products
   more: Discover more products
+  more_description: More information on the product
   pricing: Pricing
   pricing_with_value: 'Price : {{ .Value }}'
   reference: Reference

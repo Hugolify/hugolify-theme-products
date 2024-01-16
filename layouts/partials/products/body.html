@@ -1,1 +1,6 @@
-{{ partial "commons/body.html" . }}
+{{ with .Content }}
+  {{- $content := replace . "<iframe " "<iframe loading='lazy'" -}}
+  <section class="content-body" id="description">
+    {{ partial "func/PrepareHTML" $content }}
+  </section>
+{{ end }}

@@ -1,1 +1,4 @@
 {{ partial "commons/description.html" . }}
+{{ with .Content }}
+  <p><a href="#description" class="more">{{ i18n "products.more_description" }}</a></p>
+{{ end }}
