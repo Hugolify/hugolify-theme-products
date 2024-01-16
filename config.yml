@@ -1,0 +1,22 @@
+module:
+  mounts:
+    - source: archetypes
+      target: archetypes
+    - source: assets
+      target: assets
+    - source: content
+      target: content
+    - source: i18n
+      target: i18n
+    - source: layouts
+      target: layouts
+params:
+  products:
+    thumbnail:
+      desktop: '416x179'
+      mobile: '300x129'
+      scrollsnap: '240x103'
+
+# Default
+permalinks:
+  products: /products/:slug/

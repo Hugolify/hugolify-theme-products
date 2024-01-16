@@ -1,0 +1,9 @@
+products:
+  all: Tous les produits
+  discover: Découvrir le produit
+  latest: Derniers produits
+  latest_section: Derniers produits en {{ .Section }}
+  more: Découvrir plus de produits
+  title:
+    one: Produit
+    other: Produits

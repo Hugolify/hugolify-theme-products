@@ -1,0 +1,9 @@
+products:
+  all: All products
+  discover: Discover product
+  latest: Latest products
+  latest_section: Our {{ .Section }}’s latest products
+  more: Discover more products
+  title:
+    one: Product
+    other: Products

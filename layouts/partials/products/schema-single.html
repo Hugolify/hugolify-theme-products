@@ -1,0 +1,57 @@
+{{/* https://schema.org/Product */}}
+{{/* https://schema.org/Offer */}}
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": {{ .Title | plainify }},
+    "url": {{ .Permalink }},
+
+  {{- with .Params.image }}
+    "image": {{ .src | absURL }},
+  {{- end -}}
+
+  {{- with .Date }}
+    "releaseDate": {{ . }},
+  {{ end -}}
+
+  {{- with .Params.description }}
+    "description": {{ . | plainify | safeHTML }},
+  {{ end -}}
+
+  {{- with .Content }}
+    "description": {{ . | plainify | safeHTML }},
+  {{ end -}}
+
+  {{- with .Params.sku }}
+    "sku": {{ . | plainify }},
+  {{ end -}}
+
+  {{- with .Params.products_categories }}
+    "category": {{ . | plainify }},
+  {{ end -}}
+
+  {{- with .Params.offer }}
+    "offers": {
+      "@type": "Offer",
+      "businessFunction": "sell",
+    
+    {{- with .sold }}
+      "availability": "https://schema.org/OutOfStock",
+    {{ else }}
+      "availability": "https://schema.org/InStock",
+    {{- end -}}
+
+    {{- with .price }}
+      "price": {{ . | plainify }},
+    {{- end -}}
+
+    {{- $currency := $.Site.Params.currency | default "EUR" -}}
+    {{- with $currency }}
+      "priceCurrency": {{ . }}
+    {{- end }}
+    },
+  {{ end -}}
+
+  }
+</script>
