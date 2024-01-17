@@ -7,6 +7,6 @@ image:
 description:
 offer:
   price:
+  discount:
   sold: false
-products_categories:
 ---
