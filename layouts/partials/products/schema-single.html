@@ -42,13 +42,15 @@
       "availability": "https://schema.org/InStock",
     {{- end -}}
 
-    {{- with .price }}
-      "price": {{ . | plainify }},
-    {{- end -}}
+    {{- if .price }}
+      {{- $discount := .discount | default false -}}
+      {{- $realPrice := partial "func/GetDiscountedPrice" (dict "price" .price "discount" $discount) }}
+      "price": {{ $realPrice }},
 
-    {{- $currency := $.Site.Params.currency | default "EUR" -}}
-    {{- with $currency }}
+      {{- $currency := $.Site.Params.currency | default "EUR" -}}
+      {{- with $currency }}
       "priceCurrency": {{ . }}
+      {{- end }}
     {{- end }}
     },
   {{ end -}}

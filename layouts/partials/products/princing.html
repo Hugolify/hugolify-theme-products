@@ -1,0 +1,9 @@
+{{- with .Params.offer }}
+  {{- if not .sold }}
+    {{ if .price }}
+      <p class="pricing">{{ partial "commons/price" . }}</p>
+    {{ end }}
+  {{ else }}
+    <p class="pricing">{{ i18n "products.sold" 1 }}</p>
+  {{ end -}}
+{{ end -}}

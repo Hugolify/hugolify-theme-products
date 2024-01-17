@@ -1,9 +1,0 @@
-{{ with .Params.offer }}
-  {{ if not .sold }}
-    {{ with .price }}
-      <p class="pricing">{{ partial "func/GetHumanPrice" . }}</p>
-    {{ end }}
-  {{ else }}
-    <p class="pricing">{{ i18n "products.sold" 1 }}</p>
-  {{ end }}
-{{ end }}

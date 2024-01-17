@@ -5,10 +5,11 @@
     {{ else }}
       <meta itemprop="availability" content="https://schema.org/InStock">
     {{ end }}
-    {{ with .price }}
-      {{- $currency := $.Site.Params.currency | default "EUR" -}}
-      <p class="pricing" itemprop="price" content="{{ . }}">{{ partial "func/GetHumanPrice" . }}</p>
-      <meta itemprop="priceCurrency" content="{{ $currency }}">
+    {{ if .price }}
+      {{ $discount := .discount | default false }}
+      {{ $realPrice := partial "func/GetDiscountedPrice" (dict "price" .price "discount" $discount) }}
+      <p class="pricing" itemprop="price" content="{{ $realPrice }}">{{ partial "commons/price" . }}</p>
+      <meta itemprop="priceCurrency" content="{{ $.Site.Params.currency | default "EUR" }}">
     {{ end }}
   </div>
 {{ end }}
