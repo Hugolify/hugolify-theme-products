@@ -9,4 +9,10 @@ offer:
   price:
   discount:
   sold: false
+  cta:
+    blank: false
+    text:
+    url:
+  stripe:
+  shopify:
 ---
