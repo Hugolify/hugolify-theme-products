@@ -1,0 +1,4 @@
+{{ with .Params.images }}
+  {{ partial "commons/images" (dict
+    "images" .) }}
+{{ end }}
