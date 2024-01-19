@@ -12,6 +12,22 @@
     .metas
         @extend .card-footer
         padding-top: 0
+    .status
+        --bs-badge-bg: #{$gray-100}
+        --bs-badge-border-radius: 0
+        --bs-badge-color: #{$gray-800}
+        --bs-badge-font-weight: #{$font-weight-normal}
+        --bs-badge-padding-x: .75rem
+        --bs-badge-padding-y: .5rem
+        @extend .badge
+        background-color: var(--bs-badge-bg)
+        margin-bottom: 0
+        pointer-events: none
+        position: absolute
+        right: .5rem
+        text-transform: uppercase
+        top: .5rem
+        z-index: 1
     .products_category
         &::before
             content: '—'

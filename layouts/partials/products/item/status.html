@@ -1,0 +1,5 @@
+{{ with .Params.offer }}
+  {{ with .discount }}
+    <span class="status">{{ i18n "products.discount" }}</span>
+  {{ end }}
+{{ end }}

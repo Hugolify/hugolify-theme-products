@@ -1,5 +1,6 @@
 products:
   all: All products
+  discount: Discount
   discover: Discover product
   latest: Latest products
   latest_section: Our {{ .Section }}’s latest products
