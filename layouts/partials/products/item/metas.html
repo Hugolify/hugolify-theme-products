@@ -1,7 +1,3 @@
 <div class="metas">
   {{ partial "products/item/pricing" . }}
-  {{- $categories := "products/item/products_categories.html" -}}
-  {{ if templates.Exists ( printf "partials/%s" $categories ) }}
-    <p>{{ partial $categories . }}</p>
-  {{ end }}
 </div>

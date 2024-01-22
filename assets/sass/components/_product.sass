@@ -28,11 +28,9 @@
         text-transform: uppercase
         top: .5rem
         z-index: 1
-    .products_category
-        &::before
-            content: '—'
-            margin-left: .25rem
-            margin-right: .25rem
+    .category
+        @extend .surtitle
+        color: $text-muted
     a
         @extend .stretched-link
     
