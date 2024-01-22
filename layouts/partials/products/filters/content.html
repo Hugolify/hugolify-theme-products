@@ -3,8 +3,12 @@
   {{ if templates.Exists ( printf "partials/%s" $categories ) }}
     {{ partial $categories . }}
   {{ end }}
-  {{ $manufacturer := "products/filters/products_manufacturer.html" }}
-  {{ if templates.Exists ( printf "partials/%s" $manufacturer ) }}
-    {{ partial $manufacturer . }}
+  {{ $manufacturers := "products/filters/products_manufacturers.html" }}
+  {{ if templates.Exists ( printf "partials/%s" $manufacturers ) }}
+    {{ partial $manufacturers . }}
+  {{ end }}
+  {{ $tags := "products/filters/products_tags.html" }}
+  {{ if templates.Exists ( printf "partials/%s" $tags ) }}
+    {{ partial $tags . }}
   {{ end }}
 </div>

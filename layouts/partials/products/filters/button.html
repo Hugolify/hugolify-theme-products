@@ -1,5 +1,6 @@
 {{ $hasCategory := partial "func/HasTaxonomyAvailable" (dict "section" "products" "taxonomy" "products_categories") }}
-{{ $hasManufacturer := partial "func/HasTaxonomyAvailable" (dict "section" "products" "taxonomy" "products_manufacturer") }}
-{{ if or $hasCategory $hasManufacturer }}
+{{ $hasManufacturer := partial "func/HasTaxonomyAvailable" (dict "section" "products" "taxonomy" "products_manufacturers") }}
+{{ $hasTag := partial "func/HasTaxonomyAvailable" (dict "section" "products" "taxonomy" "products_tags") }}
+{{ if or $hasCategory $hasManufacturer $hasTag }}
   <button class="btn-filter" type="button" data-bs-toggle="offcanvas" data-bs-target="#productsFilters" aria-controls="productsFilters">{{ i18n "filter" }}</button>
 {{ end }}
