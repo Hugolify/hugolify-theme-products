@@ -15,20 +15,24 @@
     "releaseDate": {{ . }},
   {{ end -}}
 
-  {{- with .Params.description }}
-    "description": {{ . | plainify | safeHTML }},
-  {{ end -}}
-
-  {{- with .Content }}
-    "description": {{ . | plainify | safeHTML }},
+  {{- if .Content }}
+    {{- with .Content }}
+      "description": {{ . | plainify | safeHTML }},
+    {{ end -}}
+  {{ else }}
+    {{- with .Params.description }}
+      "description": {{ . | plainify | safeHTML }},
+    {{ end -}}
   {{ end -}}
 
   {{- with .Params.sku }}
     "sku": {{ . | plainify }},
   {{ end -}}
-
-  {{- with .Params.products_categories }}
-    "category": {{ . | plainify }},
+  
+  {{- with .GetTerms "products_categories" }}
+    {{ range . }}
+      "category": {{ .Title | plainify }},
+    {{ end }}
   {{ end -}}
 
   {{- with .Params.offer }}
