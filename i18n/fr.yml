@@ -1,5 +1,8 @@
 products:
   all: Tous les produits
+  count:
+    one: 1 produit
+    other: '{{ .Count }} produits'
   discount: Promotion
   discover: Découvrir le produit
   latest: Derniers produits
