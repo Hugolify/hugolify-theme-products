@@ -14,8 +14,9 @@ params:
   products:
     thumbnail:
       desktop: '416x416'
-      mobile: '300x300'
-      scrollsnap: '240x240'
+      desktop_large: '636x636'
+      mobile: '150x175'
+      scrollsnap: '240x300'
 
 # Default
 permalinks:
