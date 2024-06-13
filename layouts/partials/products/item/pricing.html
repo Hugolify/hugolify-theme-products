@@ -6,9 +6,7 @@
       <meta itemprop="availability" content="https://schema.org/InStock">
     {{ end }}
     {{ if .price }}
-      {{ $discount := .discount | default false }}
-      {{ $realPrice := partial "func/GetDiscountedPrice" (dict "price" .price "discount" $discount) }}
-      <p class="pricing" itemprop="price" content="{{ $realPrice }}">{{ partial "commons/price" . }}</p>
+      {{ partial "commons/price" . }}
       <meta itemprop="priceCurrency" content="{{ $.Site.Params.currency | default "EUR" }}">
     {{ end }}
   </div>
