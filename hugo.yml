@@ -13,7 +13,8 @@ module:
 params:
   admin:
     collections:
-      products: true
+      products:
+        enable: true
   products:
     thumbnail:
       desktop: '416x416'
