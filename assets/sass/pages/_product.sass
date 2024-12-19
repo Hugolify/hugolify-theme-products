@@ -11,7 +11,7 @@
             font-size: $lead-font-size
             font-weight: $font-weight-bold
         .btn
-            @extend .btn-primary
+            @include button-variant($primary,$primary)
         .more
             @include more
             color: $text-muted
