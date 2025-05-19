@@ -10,18 +10,30 @@ module:
       target: i18n
     - source: layouts
       target: layouts
+
+# Permalinks
+permalinks:
+  page:
+    products: /products/:slug/
+
+# Params
 params:
+  
+  # Admin
   admin:
     collections:
       products:
         enable: true
+        filter:
+          - field: isIndex
+            value: false
+        icon:
+          sveltiacms: box
+  
+  # Image
   products:
     thumbnail:
       desktop: '416x416'
       desktop_large: '636x636'
       mobile: '150x175'
       scrollsnap: '240x300'
-
-# Default
-permalinks:
-  products: /products/:slug/
