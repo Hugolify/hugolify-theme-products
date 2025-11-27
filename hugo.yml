@@ -28,7 +28,12 @@ params:
           - field: isIndex
             value: false
         icon:
-          sveltiacms: box
+          bootstrap_icons: box
+          iconoir: box-iso
+          lucide: box
+          material_icons: box
+          material_symbols: box
+          sveltiacms: box # legacy
   
   # Image
   products:
