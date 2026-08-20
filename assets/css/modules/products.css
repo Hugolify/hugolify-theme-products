@@ -1,0 +1,17 @@
+/* css/modules/products.css — hugolify-theme-products entry point */
+
+/* Tokens */
+@import '../tokens/products.css';
+
+/* Components */
+@import '../components/product.css';
+@import '../components/products.css';
+
+/* Pages */
+@import '../pages/product.css';
+@import '../pages/products.css';
+
+/* Modules / Taxonomies */
+@import 'products-categories.css';
+@import 'products-manufacturers.css';
+@import 'products-tags.css';

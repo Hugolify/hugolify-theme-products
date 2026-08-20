@@ -1,10 +1,10 @@
 {
-  "name": "hugolify-theme-projects",
-  "version": "0.1.9",
+  "name": "hugolify-theme-products",
+  "version": "1.0.0",
   "homepage": "https://www.hugolify.io",
-  "repository": "https://github.com/hugolify/hugolify-theme-projects",
+  "repository": "https://github.com/hugolify/hugolify-theme-products",
   "bugs": {
-    "url": "https://github.com/hugolify/hugolify-theme-projects/issues"
+    "url": "https://github.com/hugolify/hugolify-theme-products/issues"
   },
   "author": {
     "email": "sebousan@gmail.com",
@@ -18,7 +18,18 @@
     "bootstrap"
   ],
   "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "node style-dictionary.config.js"
+  },
   "devDependencies": {
-    "@hugolify/prettier-config": "^0.3.1"
+    "@hugolify/prettier-config": "^0.3.1",
+    "@uncinq/component-tokens": "^1.0.0",
+    "@uncinq/design-tokens": "^1.0.0",
+    "style-dictionary": "^5.0.0"
+  },
+  "peerDependencies": {
+    "@uncinq/component-tokens": "^1.0.0",
+    "@uncinq/design-tokens": "^1.0.0"
   }
 }
