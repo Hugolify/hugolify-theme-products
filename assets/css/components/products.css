@@ -1,0 +1,12 @@
+/* components/products.css */
+/*
+ * .products remaps the full --items-* API onto its --products-* tokens, so any
+ * value can be tuned from products.json without touching this file.
+ * Usage: <article class="items products">
+ */
+@layer components {
+  .products {
+    --items-min-width: var(--products-min-width);
+    --items-nav-margin-block-start: var(--products-nav-margin-block-start);
+  }
+}

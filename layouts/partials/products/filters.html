@@ -1,9 +1,6 @@
-{{ $hasCategory := partial "func/HasTaxonomyAvailable" (dict "section" "products" "taxonomy" "products_categories") }}
-{{ $hasManufacturer := partial "func/HasTaxonomyAvailable" (dict "section" "products" "taxonomy" "products_manufacturers") }}
-{{ $hasTag := partial "func/HasTaxonomyAvailable" (dict "section" "products" "taxonomy" "products_tags") }}
-{{ if or $hasCategory $hasManufacturer $hasTag }}
-  <div class="filters offcanvas" tabindex="-1" id="productsFilters" aria-labelledby="productsFiltersLabel">
-    {{ partial "products/filters/header" . }}
-    {{ partial "products/filters/content" . }}
-  </div>
-{{ end }}
+{{- $hasCategory := partial "func/HasTaxonomyAvailable" (dict "section" "products" "taxonomy" "products_categories") }}
+{{- $hasManufacturer := partial "func/HasTaxonomyAvailable" (dict "section" "products" "taxonomy" "products_manufacturers") }}
+{{- $hasTag := partial "func/HasTaxonomyAvailable" (dict "section" "products" "taxonomy" "products_tags") }}
+{{- if or $hasCategory $hasManufacturer $hasTag }}
+  {{ partial "commons/filters.html" (dict "context" . "section" "products") }}
+{{- end }}

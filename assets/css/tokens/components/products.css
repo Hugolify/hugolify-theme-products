@@ -1,0 +1,9 @@
+/* Do not edit directly, this file was auto-generated. */
+
+/* products.css */
+@layer tokens {
+  :root {
+    --products-min-width: var(--items-min-width);
+    --products-nav-margin-block-start: var(--items-nav-margin-block-start);
+  }
+}

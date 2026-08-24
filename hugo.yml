@@ -34,6 +34,12 @@ params:
           material_icons: box
           material_symbols: box
           sveltiacms: box # legacy
+    
+    fields:
+      offer:
+        - price
+        - discount
+        - cta
   
   # Image
   products:

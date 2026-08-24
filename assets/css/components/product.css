@@ -1,0 +1,14 @@
+/* components/product.css */
+/*
+ * .product remaps the full --item-* API (and the inner --btn-*) onto its
+ * --product-* tokens, so any value can be tuned from product.json without
+ * touching this file.
+ * Usage: <article class="item product">
+ */
+@layer components {
+  .product {
+    --item-metas-order: initial;
+    --item-metas-padding-block-end: var(--spacing-card);
+    --item-metas-padding-block-start: 0;
+  }
+}
