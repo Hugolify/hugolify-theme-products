@@ -33,7 +33,7 @@ params:
           lucide: box
           material_icons: box
           material_symbols: box
-          sveltiacms: box # legacy
+        path: "{{year}}/{{slug}}"
     
     fields:
       offer:
