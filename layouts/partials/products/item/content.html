@@ -1,4 +1,4 @@
-<a href="{{ .Permalink }}" itemprop="url" class="content">
+<a href="{{ .Permalink }}" class="content">
   {{- $categories := "products/item/products_categories.html" -}}
   {{ if templates.Exists ( printf "partials/%s" $categories ) }}
     {{ partial $categories . }}

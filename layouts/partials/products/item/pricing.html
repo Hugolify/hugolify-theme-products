@@ -1,13 +1,7 @@
 {{ with .Params.offer }}
-  <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-    {{ with .sold }}
-      <meta itemprop="availability" content="https://schema.org/OutOfStock">
-    {{ else }}
-      <meta itemprop="availability" content="https://schema.org/InStock">
-    {{ end }}
+  <div>
     {{ if .price }}
       {{ partial "commons/price" . }}
-      <meta itemprop="priceCurrency" content="{{ $.Site.Params.currency | default "EUR" }}">
     {{ end }}
   </div>
 {{ end }}

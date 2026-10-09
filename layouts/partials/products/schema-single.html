@@ -1,63 +1,50 @@
-{{/* https://schema.org/Product */}}
-{{/* https://schema.org/Offer */}}
-<script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "name": {{ .Title | plainify }},
-    "url": {{ .Permalink }},
+{{- /* Schema.org for a product: a Product and its Offer, see
+       func/GetSchemaOffer.html — the discounted price the page shows, the
+       price before the discount as the strikethrough one, nothing when the
+       editor hid it. Filed under its categories, tagged with its tags (each
+       its own module, read when the site declares it). */ -}}
+{{- $product := dict
+  "@type" "Product"
+  "@id" (printf "%s#product" .Permalink)
+  "name" (partial "func/PrepareData.html" .Title)
+  "url" .Permalink
+-}}
 
-  {{- with .Params.image }}
-    "image": {{ .src | absURL }},
+{{- with .Description -}}
+  {{- $product = merge $product (dict "description" (partial "func/PrepareData.html" .)) -}}
+{{- else -}}
+  {{- with .Summary -}}
+    {{- $product = merge $product (dict "description" (partial "func/PrepareData.html" .)) -}}
   {{- end -}}
+{{- end -}}
 
-  {{- with .Date }}
-    "releaseDate": {{ . }},
-  {{ end -}}
+{{- with partial "func/GetSchemaImage.html" .Params.image -}}
+  {{- $product = merge $product (dict "image" .) -}}
+{{- end -}}
 
-  {{- if .Content }}
-    {{- with .Content }}
-      "description": {{ partial "func/PrepareData.html" . }},
-    {{ end -}}
-  {{ else }}
-    {{- with .Params.description }}
-      "description": {{ partial "func/PrepareData.html" . }},
-    {{ end -}}
-  {{ end -}}
+{{- with .Params.sku -}}
+  {{- $product = merge $product (dict "sku" (partial "func/PrepareData.html" (string .))) -}}
+{{- end -}}
 
-  {{- with .Params.sku }}
-    "sku": {{ . | plainify }},
-  {{ end -}}
-  
-  {{- with .GetTerms "products_categories" }}
-    {{ range . }}
-      "category": {{ .Title | plainify }},
-    {{ end }}
-  {{ end -}}
+{{- with partial "func/GetSchemaTerms.html" (dict "page" . "taxonomy" "products_categories") -}}
+  {{- $product = merge $product (dict "category" .) -}}
+{{- end -}}
+{{- with partial "func/GetSchemaTerms.html" (dict "page" . "taxonomy" "products_tags") -}}
+  {{- $product = merge $product (dict "keywords" .) -}}
+{{- end -}}
 
-  {{- with .Params.offer }}
-    "offers": {
-      "@type": "Offer",
-      "businessFunction": "sell",
-    
-    {{- with .sold }}
-      "availability": "https://schema.org/OutOfStock",
-    {{ else }}
-      "availability": "https://schema.org/InStock",
-    {{- end -}}
+{{- with partial "func/GetSchemaOffer.html" (dict
+  "offer" .Params.offer
+  "url" .Permalink
+  "seller" (partial "func/GetSchemaOrganization.html" (dict "compact" true))
+) -}}
+  {{- $product = merge $product (dict "offers" .) -}}
+{{- end -}}
 
-    {{- if .price }}
-      {{- $discount := .discount | default false -}}
-      {{- $realPrice := partial "func/GetDiscountedPrice" (dict "price" .price "discount" $discount) }}
-      "price": {{ $realPrice }},
+{{- $webpage := partial "func/GetSchemaWebPage.html" (dict
+  "page" .
+  "type" "ItemPage"
+  "mainEntity" (dict "@id" (index $product "@id"))
+) -}}
 
-      {{- $currency := $.Site.Params.currency | default "EUR" -}}
-      {{- with $currency }}
-      "priceCurrency": {{ . }}
-      {{- end }}
-    {{- end }}
-    },
-  {{ end -}}
-
-  }
-</script>
+{{- partial "commons/jsonld.html" (slice $webpage $product) -}}
