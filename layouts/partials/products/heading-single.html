@@ -1,6 +1,6 @@
 <header class="heading"{{ partial "func/SetAnim.html" (dict "element" "heading") }}>
   {{ $categories := "products/products_categories.html" }}
-  {{ if templates.Exists ( printf "partials/%s" $categories ) }}
+  {{ if templates.Exists ( printf "_partials/%s" $categories ) }}
     {{ partial $categories . }}
   {{ end }}
   {{ with .Title }}

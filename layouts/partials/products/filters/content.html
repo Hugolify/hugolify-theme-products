@@ -1,14 +1,14 @@
 <div class="content">
   {{ $categories := "products/filters/products_categories.html" }}
-  {{ if templates.Exists ( printf "partials/%s" $categories ) }}
+  {{ if templates.Exists ( printf "_partials/%s" $categories ) }}
     {{ partial $categories . }}
   {{ end }}
   {{ $manufacturers := "products/filters/products_manufacturers.html" }}
-  {{ if templates.Exists ( printf "partials/%s" $manufacturers ) }}
+  {{ if templates.Exists ( printf "_partials/%s" $manufacturers ) }}
     {{ partial $manufacturers . }}
   {{ end }}
   {{ $tags := "products/filters/products_tags.html" }}
-  {{ if templates.Exists ( printf "partials/%s" $tags ) }}
+  {{ if templates.Exists ( printf "_partials/%s" $tags ) }}
     {{ partial $tags . }}
   {{ end }}
 </div>

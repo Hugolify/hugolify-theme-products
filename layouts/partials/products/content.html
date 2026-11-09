@@ -2,7 +2,7 @@
   {{ partial "products/body" . }}
   {{ partial "products/images" . }}
   {{ $tags := "products/products_tags.html" }}
-  {{ if templates.Exists ( printf "partials/%s" $tags ) }}
+  {{ if templates.Exists ( printf "_partials/%s" $tags ) }}
     {{ partial $tags . }}
   {{ end }}
 </div>
