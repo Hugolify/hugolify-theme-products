@@ -3,8 +3,12 @@
        price before the discount as the strikethrough one, nothing when the
        editor hid it. Filed under its categories, tagged with its tags (each
        its own module, read when the site declares it). Identified by the
-       front matter: sku (the seller's reference), mpn (the manufacturer's
-       part number) and brand (its name, published as a Brand). */ -}}
+       front matter: gtin (its barcode, EAN or UPC), sku (the seller's
+       reference), mpn (the manufacturer's part number) and brand (its name,
+       published as a Brand) — none of them made up when left empty. The
+       availability, the condition and the last day of the price are the
+       offer's, and the return and shipping policies the organization's, on
+       the home page: see func/GetSchemaOrganization.html. */ -}}
 {{- $product := dict
   "@type" "Product"
   "@id" (printf "%s#product" .Permalink)
@@ -26,6 +30,14 @@
 
 {{- with .Params.sku -}}
   {{- $product = merge $product (dict "sku" (partial "func/PrepareData.html" (string .))) -}}
+{{- end -}}
+{{- /* A GTIN is 8, 12, 13 or 14 digits — EAN-8, UPC, EAN-13, ITF-14 — typed
+       with or without spaces; anything else is no GTIN and is left out. */ -}}
+{{- with .Params.gtin -}}
+  {{- $gtin := replaceRE `[\s-]` "" (string .) -}}
+  {{- if findRE `^([0-9]{8}|[0-9]{12,14})$` $gtin -}}
+    {{- $product = merge $product (dict "gtin" $gtin) -}}
+  {{- end -}}
 {{- end -}}
 {{- with .Params.mpn -}}
   {{- $product = merge $product (dict "mpn" (partial "func/PrepareData.html" (string .))) -}}

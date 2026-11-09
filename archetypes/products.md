@@ -6,11 +6,16 @@ date: {{ .Date }}
 image:
 description:
 brand:
+gtin:
 mpn:
 sku:
 offer:
   price:
   discount:
+  price_valid_until:
+  availability:
+  availability_starts:
+  condition: NewCondition
   sold: false
   cta:
     blank: false
