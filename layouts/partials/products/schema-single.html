@@ -2,7 +2,9 @@
        func/GetSchemaOffer.html — the discounted price the page shows, the
        price before the discount as the strikethrough one, nothing when the
        editor hid it. Filed under its categories, tagged with its tags (each
-       its own module, read when the site declares it). */ -}}
+       its own module, read when the site declares it). Identified by the
+       front matter: sku (the seller's reference), mpn (the manufacturer's
+       part number) and brand (its name, published as a Brand). */ -}}
 {{- $product := dict
   "@type" "Product"
   "@id" (printf "%s#product" .Permalink)
@@ -24,6 +26,15 @@
 
 {{- with .Params.sku -}}
   {{- $product = merge $product (dict "sku" (partial "func/PrepareData.html" (string .))) -}}
+{{- end -}}
+{{- with .Params.mpn -}}
+  {{- $product = merge $product (dict "mpn" (partial "func/PrepareData.html" (string .))) -}}
+{{- end -}}
+{{- with .Params.brand -}}
+  {{- $product = merge $product (dict "brand" (dict
+    "@type" "Brand"
+    "name" (partial "func/PrepareData.html" (string .))
+  )) -}}
 {{- end -}}
 
 {{- with partial "func/GetSchemaTerms.html" (dict "page" . "taxonomy" "products_categories") -}}

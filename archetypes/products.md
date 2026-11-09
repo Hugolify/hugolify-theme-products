@@ -5,6 +5,9 @@ title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
 image:
 description:
+brand:
+mpn:
+sku:
 offer:
   price:
   discount:
