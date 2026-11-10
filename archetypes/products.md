@@ -24,4 +24,5 @@ offer:
     url:
   stripe:
   shopify:
+datas:
 ---

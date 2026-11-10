@@ -57,6 +57,11 @@
   {{- $product = merge $product (dict "keywords" .) -}}
 {{- end -}}
 
+{{- /* The spec sheet the page shows, see func/GetSchemaDatas.html. */ -}}
+{{- with partial "func/GetSchemaDatas.html" (dict "datas" .Params.datas) -}}
+  {{- $product = merge $product (dict "additionalProperty" .) -}}
+{{- end -}}
+
 {{- with partial "func/GetSchemaOffer.html" (dict
   "offer" .Params.offer
   "url" .Permalink
