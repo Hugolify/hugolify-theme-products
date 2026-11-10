@@ -24,7 +24,8 @@
   {{- end -}}
 {{- end -}}
 
-{{- with partial "func/GetSchemaImage.html" .Params.image -}}
+{{- /* The featured image and those of the page, see func/GetSchemaImages.html. */ -}}
+{{- with partial "func/GetSchemaImages.html" (dict "page" . "images" .Params.images) -}}
   {{- $product = merge $product (dict "image" .) -}}
 {{- end -}}
 

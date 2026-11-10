@@ -4,6 +4,7 @@ draft: true
 title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
 image:
+images:
 description:
 brand:
 gtin:
