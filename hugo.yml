@@ -29,6 +29,7 @@ params:
             value: false
         icon:
           bootstrap_icons: box
+          hugeicons: Package
           iconoir: box-iso
           lucide: box
           material_icons: box
